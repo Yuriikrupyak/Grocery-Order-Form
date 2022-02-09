@@ -3,7 +3,8 @@ import {FoodCategoriesService} from "../food-categories.service";
 import {FoodCategory} from '../ens-shared/food-category';
 import {Drinks, Fruits, Seeds, VeganFood, Vegetables} from "../ens-shared/category-items";
 import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
-
+import data from '../ens-shared/items-of-categories.json';
+import {Unit} from "../ens-shared/unit";
 @Component({
   selector: 'gos-food-categories',
   templateUrl: './food-categories.component.html',
@@ -15,28 +16,25 @@ export class FoodCategoriesComponent implements OnInit {
 
   foodCategories: FoodCategory [] = [];
   selectedCategory?: FoodCategory;
-  fruits = Fruits;
-  vegetables = Vegetables;
-  veganFood = VeganFood;
-  drinks = Drinks;
-  seeds = Seeds;
+  selectedCategoryUnit?: Unit [] = [];
+
 
   constructor(private foodCategoriesService: FoodCategoriesService, private fb: FormBuilder) {
-    this.fruits = Fruits;
-    this.vegetables = Vegetables;
-    this.veganFood = VeganFood;
-    this.drinks = Drinks;
-    this.seeds = Seeds;
+    // this.fruits = Fruits;
+    // this.vegetables = Vegetables;
+    // this.veganFood = VeganFood;
+    // this.drinks = Drinks;
+    // this.seeds = Seeds;
   }
 
   ngOnInit(): void {
     this.getCategories();
     this.foodUnitsForm = this.fb.group({
-      fruits: [null],
-      vegetables: [null],
-      veganFood: [null],
-      drinks: [null],
-      seeds: [null]
+      // fruits: [null],
+      // vegetables: [null],
+      // veganFood: [null],
+      // drinks: [null],
+      // seeds: [null]
     })
   }
 
@@ -48,6 +46,10 @@ export class FoodCategoriesComponent implements OnInit {
   getCategories(): void {
     this.foodCategoriesService.getCategories()
       .subscribe(foodCategories => this.foodCategories = foodCategories);
+  }
+  getCategoryUnits(name: string) {
+    return  this.foodCategoriesService.getCategoryUnits(name);
+
   }
 
   onSubmit() {
