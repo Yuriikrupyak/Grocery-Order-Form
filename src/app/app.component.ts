@@ -1,3 +1,4 @@
+// app.component.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Grocery-Order-Form';
+  title = 'eco-nutrition-storep';
+
+  // selected?: string;
+  //
+  // currencies = [
+  //   { value: 'us', text: 'U.S. Dollar $' },
+  //   { value: 'euro', text: 'Euro €' },
+  //   { value: 'yen', text: 'Japanese Yen ¥' },
+  //   { value: 'pound', text: 'Pounds £' },
+  //   { value: 'inr', text: 'Indian Rupee ₹' }
+  // ];
+
 }
