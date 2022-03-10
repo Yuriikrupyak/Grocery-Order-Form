@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'eco-nutrition-storep';
+  title = 'eco-nutrition-store';
 
   // selected?: string;
   //

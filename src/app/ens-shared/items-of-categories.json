@@ -32,7 +32,7 @@
     {"id" : "5", "name": "mock Sausages"},
     {"id" : "6", "name": "Plant-Based Jerkys"},
     {"id" : "7", "name": "Nutritional Yeast"},
-    {"id" : "8", "name": "High-End Fermented Nut Cheese"}
+    {"id" : "8", "name": "Fermented Nut Cheese"}
   ],
   "drinks": [
     { "id": "1", "name": "fresh juices"},

@@ -7,41 +7,43 @@
       <div class="category-units">
         <!--Fruits-->
         <form  [formGroup]="foodUnitsForm" (ngSubmit)="onSubmit()">
-          <div class="fruits" *ngIf="category.id === 1">
-            <label for="fruits-category">Select fruits</label>
-            <ul>
-              <li *ngFor="let fruit of getCategoryUnits('fruits')" [value]="fruit"><input type="checkbox">{{fruit.name}}</li>
-            </ul>
+          <div class="scroll-container">
+            <div class="fruits" *ngIf="category.id === 1">
+              <label for="fruits-category">Select fruits</label>
+              <ul>
+                <li id="fruits-category" *ngFor="let fruit of getCategoryUnits('fruits')" [value]="fruit"><input type="checkbox" [value]="fruit.id" (change)="onCheckboxChange($event)">{{fruit.name}}</li>
+              </ul>
+            </div>
+            <!--Vegetables-->
+            <div class="vegetables" *ngIf="category.id === 2">
+              <label for="vegetables-category">Select vegetable</label>
+              <ul>
+                <li id="vegetables-category" *ngFor="let vegetable of getCategoryUnits('vegetables')" [value]="vegetable"><input type="checkbox">{{vegetable.name}}</li>
+              </ul>
+            </div>
+            <!--Vegan-food-->
+            <div class="vegan-food" *ngIf="category.id === 3">
+              <label for="vegan-food-category">Select food</label>
+              <ul>
+                <li id="vegan-food-category" *ngFor="let food of getCategoryUnits('veganFood')" [value]="food"><input type="checkbox">{{food.name}}</li>
+              </ul>
+            </div>
+            <!--Drinks-->
+            <div class="drinks" *ngIf="category.id === 4">
+              <label id="drinks-category" for="drinks-category">Select drink</label>
+              <ul>
+                <li *ngFor="let drink of getCategoryUnits('drinks')" [value]="drink"><input type="checkbox">{{drink.name}}</li>
+              </ul>
+            </div>
+            <!--Seeds-->
+            <div class="seeds" *ngIf="category.id === 5">
+              <label id="seeds-category" for="seeds-category">Select seeds</label>
+              <ul>
+                <li *ngFor="let seed of  getCategoryUnits('drinks')" [value]="seed"><input type="checkbox">{{seed.name}}</li>
+              </ul>
+            </div>
           </div>
-          <!--Vegetables-->
-          <div class="vegetables" *ngIf="category.id === 2">
-            <label for="vegetables-category">Select vegetable</label>
-            <ul>
-              <li *ngFor="let vegetable of getCategoryUnits('vegetables')" [value]="vegetable"><input type="checkbox">{{vegetable.name}}</li>
-            </ul>
-          </div>
-          <!--Vegan-food-->
-          <div class="vegan-food" *ngIf="category.id === 3">
-            <label for="vegan-food-category">Select food</label>
-            <ul>
-              <li *ngFor="let food of getCategoryUnits('veganFood')" [value]="food"><input type="checkbox">{{food.name}}</li>
-            </ul>
-          </div>
-          <!--Drinks-->
-          <div class="drinks" *ngIf="category.id === 4">
-            <label for="drinks-category">Select drink</label>
-            <ul>
-              <li *ngFor="let drink of getCategoryUnits('drinks')" [value]="drink"><input type="checkbox">{{drink.name}}</li>
-            </ul>
-          </div>
-          <!--Seeds-->
-          <div class="seeds" *ngIf="category.id === 5">
-            <label for="seeds-category">Select seeds</label>
-            <ul>
-              <li *ngFor="let seed of  getCategoryUnits('drinks')" [value]="seed"><input type="checkbox">{{seed.name}}</li>
-            </ul>
-          </div>
-          <button type="submit">Submit</button>
+          <button type="submit" [disabled]="!foodUnitsForm.valid">Submit</button>
         </form>
       </div>
     </ng-container>
